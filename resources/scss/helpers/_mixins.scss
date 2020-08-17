@@ -1,0 +1,49 @@
+// 1. Transition
+// ------------------
+$transition-duration: 0.2s !default;
+$transition-delay: false !default;
+$transition-timing-function: ease-in-out !default;
+$transition-property: all !default;
+
+/**
+ * transition mixin
+ * @type {map}
+ *
+ * @example
+ *      @include transition('border-color', 'box-shadow', 'background-size');
+ *
+ *      or
+ *
+ *      @include transition('border-color', 'box-shadow', (
+ *          property: background-size,
+ *          timing-function: cubic-bezier(0.44,-0.55, 0.24, 2.7)
+ *      ));
+ */
+@mixin transition($properties...) {
+  $declarations: ();
+
+  @each $declaration in $properties {
+    $duration: $transition-duration;
+    $delay: $transition-delay;
+    $timing-function: $transition-timing-function;
+    $property: $transition-property;
+
+    @if type-of($declaration) == "map" {
+      $duration: if(map_get($declaration, "duration"), #{map_get($declaration, "duration")}, $duration);
+      $delay: if(map_get($declaration, "delay"), #{map_get($declaration, "delay")}, $delay);
+      $timing-function: if(
+        map_get($declaration, "timing-function"),
+        #{map_get($declaration, "timing-function")},
+        $timing-function
+      );
+      $property: if(map_get($declaration, "property"), #{map_get($declaration, "property")}, $property);
+    } @else {
+      $property: $declaration;
+    }
+
+    $delayValue: if($delay, " " + $delay, "");
+    $declarations: append($declarations, #{$property + " " + $duration + $delayValue + " " + $timing-function}, comma);
+  }
+
+  transition: $declarations;
+}

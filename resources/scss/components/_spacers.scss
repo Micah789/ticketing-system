@@ -1,0 +1,69 @@
+/// The base sized spacer
+/// @type Map
+$spacer-base: (
+  small: map-get($grid-column-gutter, small),
+  medium: map-get($grid-column-gutter, medium),
+) !default;
+
+/// The tiny sized spacer
+/// @type Map
+$spacer-tiny: (
+  small: map-get($spacer-base, small) / 2,
+  medium: map-get($spacer-base, medium) / 2,
+);
+
+/// The medium sized spacer
+/// @type Map
+$spacer-medium: (
+  small: map-get($spacer-base, small) * 2,
+  medium: map-get($spacer-base, medium) * 2,
+) !default;
+
+/// The large sized spacer
+/// @type Map
+$spacer-large: (
+  small: map-get($spacer-base, small) * 3,
+  medium: map-get($spacer-base, medium) * 3,
+) !default;
+
+/// The xlarge sized spacer
+/// @type Map
+$spacer-xlarge: (
+  small: map-get($spacer-base, small) * 4,
+  medium: map-get($spacer-base, medium) * 4,
+) !default;
+
+/// The sizes to include
+/// @type Map
+$spacer-sizes: (
+  tiny: $spacer-tiny,
+  medium: $spacer-medium,
+  large: $spacer-large,
+  xlarge: $spacer-xlarge,
+) !default;
+
+// basic spacer styling
+.spacer {
+  display: block;
+  width: 100%;
+}
+
+// loop over each base size
+@each $breakpoint, $size in $spacer-base {
+  @include breakpoint($breakpoint) {
+    .spacer {
+      height: $size;
+    }
+  }
+}
+
+// loop over additional sizes
+@each $class, $map in $spacer-sizes {
+  @each $breakpoint, $size in $map {
+    @include breakpoint($breakpoint) {
+      .spacer.#{$class} {
+        height: $size;
+      }
+    }
+  }
+}

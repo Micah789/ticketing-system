@@ -1,0 +1,59 @@
+# Numerous always-ignore extensions
+*.bak
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*.idea
+.sass-cache
+composer.phar
+.env
+.env.*.php
+.env.php
+php_errors.log
+nginx-error.log
+nginx-access.log
+nginx-ssl.access.log
+nginx-ssl.error.log
+php-errors.log
+sftp-config.json
+selenium.php
+
+# OS or Editor folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# Dreamweaver added files
+_notes
+dwsync.xml
+
+# folders to ignore
+node_modules
+
+# files to ignore
+assets/css/app.css
+assets/js/app.js
+assets/js/manifest.js
+assets/js/vendor.js
+package-lock.json
+mix-manifest.json
+composer.lock
+
+# for netbeans
+nbproject
+*.env
+vendor/**
+
+*.sql

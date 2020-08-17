@@ -1,0 +1,29 @@
+@import 'settings';
+@import 'foundation';
+@import 'fonts';
+
+// Global styles
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-xy-grid-classes;
+@include foundation-visibility-classes;
+@include foundation-flex-classes;
+
+// helper mixins/functions
+@import 'helpers/mixins';
+
+// components
+@import 'components/spacers';
+@import 'components/forms';
+@import 'components/buttons';
+@import 'components/callouts';
+@import 'components/tables';
+@import 'components/labels';
+@import 'components/reveals';
+@import 'components/menus';
+@import 'components/dropdown-menus';
+@import 'components/cards';
+@import 'components/pagination';
+
+//modules
+@import 'modules/form';

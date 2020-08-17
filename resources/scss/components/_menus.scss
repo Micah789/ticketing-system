@@ -1,0 +1,13 @@
+@include foundation-menu-icon;
+@include foundation-menu;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding: 8px 0px;
+  background-color: $white;
+  box-shadow: 0px 3px 5px -3px rgba($black, .4);
+}
