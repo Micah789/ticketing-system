@@ -15,6 +15,6 @@ $GLOBALS['config'] = [
     'token_name' => 'token' 
   ),
   'email' => array(
-    'sendgrid_api_key' => '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'
+    'sendgrid_api_key' => 'xxxx'
   )
 ];
